@@ -13,6 +13,11 @@ object MieszkaniaApp extends LazyLogging {
   def main(args: Array[String]): Unit = {
     logger.info("Wynajem mieszkan START")
 
+    val host: String = args(0)
+
+    logger.info("Binduje sie na hoscie {}", host)
+
+
     implicit val system = ActorSystem("mieszkania")
     implicit val materializer = ActorMaterializer()
     implicit val executionContext = system.dispatcher
@@ -24,7 +29,7 @@ object MieszkaniaApp extends LazyLogging {
         }
       }
 
-    val bindingFuture = Http().bindAndHandle(route, "localhost", 8080)
+    val bindingFuture = Http().bindAndHandle(route, host, 8080)
   }
 
 }

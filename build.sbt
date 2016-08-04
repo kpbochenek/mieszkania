@@ -3,6 +3,9 @@ organization := "kpbochenek"
 
 scalaVersion := "2.11.8"
 
+test in assembly := {}
+assemblyJarName in assembly := "mieszkania.jar"
+
 val akkaV = "2.4.8"
 
 libraryDependencies ++= Seq(
